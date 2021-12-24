@@ -1,13 +1,19 @@
 package Method;
+
 public class Test25 {
     static boolean checkContains(String str) {
-        return str.contains("@") || str.contains(".");
+        int indexOfLetter = str.indexOf("@");
+        if (str.indexOf("@", indexOfLetter + 1) > indexOfLetter) {
+            return false;
+        } else {
+            return str.contains("@") && str.contains(".");
+        }
     }
 }
 
 class Test25Test {
     public static void main(String[] args) {
-        boolean a = Test25.checkContains("werqf@czc");
+        boolean a = Test25.checkContains("@werqf.cz@c.");
         System.out.println(a);
     }
 }

@@ -6,7 +6,7 @@ public class Test24 {
         Random rand = new Random();
         int [] array = new int [size];
         for (int i=0; i<array.length; i++){
-            array[i] = min + rand.nextInt(max+1-min);
+            array[i] = min + rand.nextInt(max-min);
         }
         return array;
     }
