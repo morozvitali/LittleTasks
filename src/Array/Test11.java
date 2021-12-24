@@ -2,6 +2,7 @@ package Array;
 import java.util.Random;
 
 public class Test11 {
+    static int minNumber;
     public static void main(String[] args) {
 
         int[][] array = new int[7][4];
@@ -16,12 +17,11 @@ public class Test11 {
         }
 
         for (int a = 0; a < array.length; a++) {
-            int minNumber = 5;
+            minNumber = array [a][0];
             for (int b = 0; b < 4; b++) {
                 if (minNumber > array [a][b]) {
                         minNumber = array[a][b];
                 }
-
             }
             System.out.println("Минимальное число " + a + "-й строки: " + minNumber);
         }
