@@ -11,24 +11,27 @@ public class GuessNumber {
         int min = 0;
         int max = 10;
         //опр случайное число
-
-        Random rand = new Random();
-
-
-
-        int robotAnswer = min + rand.nextInt(max); // робот придумал число между мин - макс
-        System.out.println(robotAnswer + " - загадано роботом число"); // для проверки выведем его на экран, отладка
+        System.out.println("Загадайте число");//задаем вопрос
+        Scanner scanner = new Scanner(System.in); // загадали число (ввести в консоль)
+        int userNumber = scanner.nextInt(); // присвоили заданное число userNumber
+        Random rand = new Random();// создаем обьект случайных чисел
+        int robotAnswer;//тут будут храниться варианты ответов робота
+        do {
+            robotAnswer = min + rand.nextInt(max); // робот придумал число между мин - макс
+            System.out.println(robotAnswer + " - загадано роботом число"); // для проверки выведем его на экран, отладка
 //        int robotAnswer = 100;
 
 
-        System.out.println("Загадайте число");
 
-        Scanner scanner = new Scanner(System.in); // загадали число (ввести в консоль)
-        int userNumber = scanner.nextInt(); // присвоили заданное число userNumber
-        System.out.println("Введите ответ, загаданное Вами число: больше или меньше " + robotAnswer + "?"); // спросили больше меньше
+            System.out.println("Введите ответ, загаданное Вами число: больше или меньше " + robotAnswer + "?"); // спросили больше меньше
 
-        String userAnswer = scanner.next(); // тут ответ больше или меньше
-        if (userAnswer == "больше") {min = robotAnswer;} else {max = robotAnswer;}
+            String userAnswer = scanner.next(); // тут ответ больше или меньше
+            if (userAnswer.equals("больше")) {
+                min = robotAnswer;
+            } else {
+                max = robotAnswer;
+            }
+        }while (userNumber != robotAnswer);
     }
 }
 //// "Console game ""Guess number""
